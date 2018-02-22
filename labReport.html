@@ -2,10 +2,13 @@
 
 	<head> 
 
-<title> “Lab Report” </title></head> 
+<title> Lab Report </title></head> 
 <body>
-<p> “Gravity Challenge” </p>
-<p> “What kind of structure allows you to build farthest from the wall?”</p>
+  <h1 id = "title">
+    Lab Report
+  </h1> 
+<h2 id = "challenge-type" >Gravity Challenge </h2>
+<p> What kind of structure allows you to build farthest from the wall?</p>
 
 
 
@@ -13,19 +16,26 @@
 <form action="/form" method="POST">
 
 
-<label> Type here!  </label>
-<input type="text"
-id="textbox"
-name= “Whatareyougoingtotry?”
+<label> What are you going to try?</label>
 
-value="Message Here" /> <br>
-<input type="text"
-id="textbox"
-name="Results"
-value="Message Here" />
 
-<input type= "submit" value="Submit">
+
+
+
+
+  <textarea name = "plan" form = "whatareyougoingtotry?"
+            placeholder = "Record your plan and predictions here!">
+</textarea>
+  <br>
+  <label> What happened when you tested your plan? </label>
+   <textarea name = "prediction" form = "whatareyougoingtotry?"
+            placeholder = "Record your results here!">
+</textarea>
+  
+  <input type= "submit" value="Save my Report!">
 </form>
+  
 </html>
+
 
 
