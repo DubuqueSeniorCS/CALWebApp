@@ -1,0 +1,23 @@
+textarea {
+   resize: none;
+  
+}
+#title {
+  text-align: center;
+  font-size: 35px;
+  padding: 0px;
+  margin: 0px; 
+  
+    
+}
+#challenge-type{
+  text-align: center;
+  font-size: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+textarea{
+ height: 300px;
+ width: 660px; 
+ display: block;
+}
