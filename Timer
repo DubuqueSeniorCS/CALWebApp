@@ -1,1 +1,54 @@
-<a href = https://gist.github.com/mrsgoranson/1a54a2ce78ec0854d738eae071b29565> My Code </a> 
+//HTML 
+<div id = "time"></div>
+<button id = "startButton" onClick = getTimeStart()>Start</button>
+<button onClick = getStopTime()>Stop</button> 
+<button onClick = restart()>Restart</button>
+
+
+//JavaScript 
+var timer = new Date();
+var startTime = 0;
+var stopTime = 0;
+var tenthseconds = 0;
+var seconds = 0;
+setInterval(displayTime, 100);
+var isStopped = false;
+
+function displayTime() {
+  timer = new Date();
+  if (startTime != 0 && !isStopped) {
+    stopTime = timer.getTime();
+    var elapsedseconds = stopTime - startTime; 
+    tenthseconds = Math.floor(elapsedseconds / 100) % 10;
+    seconds = Math.floor(elapsedseconds / 1000);
+  } 
+  document.getElementById("time").innerHTML =
+    seconds + ":" + tenthseconds + " seconds";
+  console.log(isStopped);
+}
+
+function getTimeStart() {
+  console.log("Start");
+  timer = new Date();
+  startTime = timer.getTime();
+  console.log(startTime);
+  document.getElementById("startButton").innerHTML = "Started...";
+}
+
+function getStopTime() { 
+
+  isStopped = true;
+  document.getElementById("startButton").innerHTML = "Start"; 
+}
+
+var timeToDisplay = stopTime - startTime;
+function restart() 
+{ isStopped = false; 
+ startTime = 0; 
+ seconds = 0;
+ tenthseconds = 0; 
+ document.getElementById("startButton").innerHTML = "Start"; 
+}
+
+
+
