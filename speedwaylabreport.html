@@ -1,0 +1,88 @@
+<html>
+	<head>
+		
+	<link rel="stylesheet" href="labreport.css">
+
+	 
+
+<title> Lab Report </title></head> 
+<body>
+  <h1 id = "title">
+    Lab Report
+  </h1> 
+<h2 id = "challenge-type" >Speedway Challenge </h2>
+<p> What alters the speed of the car? </p>
+
+
+
+
+<form action="/form" method="POST">
+
+
+<label> What are you going to try?</label>
+
+
+
+
+
+
+  <textarea name = "plan" form = "whatareyougoingtotry?"
+            placeholder = "Record your plan and predictions here!">
+</textarea>
+  <br>
+  <div id = "time"></div>
+<button id = "startButton" onClick = getTimeStart()>Start</button>
+<button onClick = getStopTime()>Stop</button> 
+<button onClick = restart()>Restart</button>
+
+<script type="text/javascript">
+//JavaScript 
+var timer = new Date();
+var startTime = 0;
+var stopTime = 0;
+var tenthseconds = 0;
+var seconds = 0;
+setInterval(displayTime, 100);
+var isStopped = false;
+function displayTime() {
+  timer = new Date();
+  if (startTime != 0 && !isStopped) {
+    stopTime = timer.getTime();
+    var elapsedseconds = stopTime - startTime; 
+    tenthseconds = Math.floor(elapsedseconds / 100) % 10;
+    seconds = Math.floor(elapsedseconds / 1000);
+  } 
+  document.getElementById("time").innerHTML =
+    seconds + ":" + tenthseconds + " seconds";
+  console.log(isStopped);
+}
+function getTimeStart() {
+  console.log("Start");
+  timer = new Date();
+  startTime = timer.getTime();
+  console.log(startTime);
+  document.getElementById("startButton").innerHTML = "Started...";
+}
+function getStopTime() { 
+  isStopped = true;
+  document.getElementById("startButton").innerHTML = "Start"; 
+}
+var timeToDisplay = stopTime - startTime;
+function restart() 
+{ isStopped = false; 
+ startTime = 0; 
+ seconds = 0;
+ tenthseconds = 0; 
+ document.getElementById("startButton").innerHTML = "Start"; 
+}
+</script>
+  <label> How fast did your car go? Hint: Use the timer! </label>
+   <textarea name = "prediction" form = "whatareyougoingtotry?"
+            placeholder = "Record your results here!">
+</textarea>
+  
+  <input type= "submit" value="Save my Report!">
+</form>
+  
+</html>
+
