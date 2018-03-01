@@ -1,0 +1,42 @@
+<html>
+	<head>
+		
+	<link rel="stylesheet" href="labreport.css">
+
+	 
+
+<title> Lab Report </title></head> 
+<body>
+  <h1 id = "title">
+    Lab Report
+  </h1> 
+<h2 id = "challenge-type" >Speedway Challenge </h2>
+<p> What alters the speed of the car? </p>
+
+
+
+
+<form action="/form" method="POST">
+
+
+<label> What are you going to try?</label>
+
+
+
+
+
+
+  <textarea name = "plan" form = "whatareyougoingtotry?"
+            placeholder = "Record your plan and predictions here!">
+</textarea>
+  <br>
+  <label> How fast did your car go? </label>
+   <textarea name = "prediction" form = "whatareyougoingtotry?"
+            placeholder = "Record your results here!">
+</textarea>
+  
+  <input type= "submit" value="Save my Report!">
+</form>
+  
+</html>
+
