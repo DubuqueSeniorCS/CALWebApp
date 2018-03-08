@@ -21,7 +21,10 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       };
-      <button type="button" onclick= (""signOut();">Sign out')" style="background-color:#02eaff;">Sign Out</button>
+      var revokeAllScopes = function() {
+      auth2.disconnect();
+      }
+      <button type="button" onclick= (""signOut();">Sign out' && revokeAllScopes)" style="background-color:#02eaff;">Sign Out</button>
     </script>
   </body>
 </html>
