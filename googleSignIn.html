@@ -21,15 +21,7 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       };
-    </script>
-      <a href="#" onclick="signOut();">Sign out</a>
-      <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+      <button type="button" onclick= (""signOut();">Sign out')" style="background-color:#02eaff;">Sign Out</button>
     </script>
   </body>
 </html>
