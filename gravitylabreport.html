@@ -16,17 +16,13 @@
                 <form onsubmit="printToPdf()">
                         <label> What are you going to try?</label>
 
-                        <textarea name = "plan" form = "whatareyougoingtotry?"
-                                placeholder = "Record your plan and predictions here!">
-                        </textarea>
+                        <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
 
                         <br>
 
                         <label> What happened when you tested your plan? </label>
 
-                        <textarea name = "prediction" form = "whatareyougoingtotry?"
-                                placeholder = "Record your results here!">
-                        </textarea>
+                        <textarea id="prediction" placeholder="Record your results here!"></textarea>
 
                         <input type= "submit" value="Save my Report!">
                 </form>
@@ -40,10 +36,16 @@
 
                 <script>
                         function printToPdf(){
-                                // Replace this with code that actually gets info from the DOM
                                 var doc = new jsPDF();
                                 doc.setFontSize(35);
-                                doc.text(35, 25, 'text in a pdf');
+                                doc.text('Gravity Challenge');
+                                doc.text('Lab Report');
+                                doc.setFontSize(24);
+                                doc.text('Goal: Build the farthest structure from the wall');
+                                doc.text('What did you try?');
+                                doc.text(document.getElementById("plan").value);
+                                doc.text('What happened when you tested your plan?');
+                                doc.text(document.getElementById("prediction").value);
                                 doc.save('gravitylab.pdf');
                         }
                 </script>
