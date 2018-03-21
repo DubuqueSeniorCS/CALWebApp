@@ -20,10 +20,16 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       };
-    var revokeAllScopes = function() {
-    auth2.disconnect();
-    }
     </script>
-    <button type="button" onclick="revokeAllScopes" style="background-color:#02eaff;">Sign Out</button>
+    <a href="#" onclick="signOut();">Sign out</a>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+</script>
+    <button type="button" onclick="signOut" style="background-color:#02eaff;">Sign Out</button>
   </body>
 </html>
