@@ -32,6 +32,15 @@ public void onClick(View v) {
         // ...
     }
 }
+      private void signOut() {
+    mGoogleSignInClient.signOut()
+            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    // ...
+                }
+            });
+}
     </script>
        <button type="button" onClickListener="signOut" style="background-color:#02eaff;">Sign Out</button>
   </body>
