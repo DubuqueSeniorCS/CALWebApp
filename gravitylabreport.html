@@ -38,14 +38,14 @@
                         function printToPdf(){
                                 var doc = new jsPDF();
                                 doc.setFontSize(35);
-                                doc.text('Gravity Challenge');
-                                doc.text('Lab Report');
+                                doc.text(25, 25, 'Gravity Challenge');
+                                doc.text(25, 35, 'Lab Report');
                                 doc.setFontSize(24);
-                                doc.text('Goal: Build the farthest structure from the wall');
-                                doc.text('What did you try?');
-                                doc.text(document.getElementById("plan").value);
-                                doc.text('What happened when you tested your plan?');
-                                doc.text(document.getElementById("prediction").value);
+                                doc.text(25, 45, 'Goal: Build the farthest structure from the wall');
+                                doc.text(25, 55, 'What did you try?');
+                                doc.text(25, 65, document.getElementById("plan").value);
+                                doc.text(25, 75, 'What happened when you tested your plan?');
+                                doc.text(25, 85, document.getElementById("prediction").value);
                                 doc.save('gravitylab.pdf');
                         }
                 </script>
