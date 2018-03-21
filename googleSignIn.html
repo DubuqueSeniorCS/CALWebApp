@@ -20,28 +20,10 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       };
-    </script>
-    <script>
-      @Override
-public void onClick(View v) {
-    switch (v.getId()) {
-        // ...
-        case R.id.button_sign_out:
-            signOut();
-            break;
-        // ...
+    var revokeAllScopes = function() {
+    auth2.disconnect();
     }
-}
-      private void signOut() {
-    mGoogleSignInClient.signOut()
-            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    // ...
-                }
-            });
-}
     </script>
-       <button type="button" onClickListener="signOut" style="background-color:#02eaff;">Sign Out</button>
+    <button type="button" onclick="revokeAllScopes" style="background-color:#02eaff;">Sign Out</button>
   </body>
 </html>
