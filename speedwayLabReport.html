@@ -1,96 +1,123 @@
 <html>
-	<head>
-		
-	<link rel="stylesheet" href="labreport.css">
 
-	 
+<head>
+    <link rel="stylesheet" href="labreport.css">
+    <link rel="stylesheet" type="text/css" href="./css/normaliz1e.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>Speedway Lab</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+</head>
 
-<title> Lab Report </title></head> 
 <body>
-  <h1 id = "title">
-    Lab Report
-  </h1> 
-<h2 id = "challenge-type" >Speedway Challenge </h2>
-<p> What alters the speed of the car? </p>
+
+    <h1 id="title">Lab Report</h1>
+
+    <h2 id="challenge-type">Speedway Challenge </h2>
+
+    <p>What alters the speed of the car?</p>
+    1
+    <label> What are you going to try?</label>
+
+    <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
+
+    <br>
+    <div id="time"></div>
+    <button id="startButton" onClick=getTimeStart()>Start</button>
+    <button onClick="getStopTime()">Stop</button>
+    <button onClick="restart()">Restart</button>
+    <label> How fast did your car go? Hint: use the timer! </label>
+
+    <textarea id="prediction" placeholder="Record your results here!"></textarea>
 
 
+    <input type="file" onchange="previewFile()">
+    <br>
+    <img src="" height="200" alt="Image preview...">
 
+    <button onclick="printToPdf()">Save my report!</button>
 
-<form action="javascript:void(0)">
+    <h1>Ready to move on to something new?</h1>
+    <h2>CLICK BELOW!</h2>
+    <button type="button" onclick="alert('Hello world!')">Click Here to Return Home!</button>
+    <br>
+    <br/>
+    <a href="constructionlab.html" />
+    <img src="https://static1.squarespace.com/static/589a3a502e69cf66eed974fa/5a393353e4966b9ea4cd5860/5a3943c8652dea6c079c7386/1513702388953/Screen+Shot+2017-12-19+at+10.44.17+AM.png?format=750w"
+        width="350">
+    </a>
 
+    <script>
+        var timer = new Date();
+        var startTime = 0;
+        var stopTime = 0;
+        var tenthseconds = 0;
+        var seconds = 0;
+        setInterval(displayTime, 100);
+        var isStopped = false;
 
-<label> What are you going to try?</label>
+        function displayTime() {
+            timer = new Date();
+            if (startTime != 0 && !isStopped) {
+                stopTime = timer.getTime();
+                var elapsedseconds = stopTime - startTime;
+                tenthseconds = Math.floor(elapsedseconds / 100) % 10;
+                seconds = Math.floor(elapsedseconds / 1000);
+            }
+            document.getElementById("time").innerHTML =
+                seconds + ":" + tenthseconds + " seconds";
+            console.log(isStopped);
+        }
 
+        function getTimeStart() {
+            console.log("Start");
+            timer = new Date();
+            startTime = timer.getTime();
+            console.log(startTime);
+            document.getElementById("startButton").innerHTML = "Started...";
+        }
 
+        function getStopTime() {
+            isStopped = true;
+            document.getElementById("startButton").innerHTML = "Start";
+        }
+        var timeToDisplay = stopTime - startTime;
 
+        function restart() {
+            isStopped = false;
+            startTime = 0;
+            seconds = 0;
+            tenthseconds = 0;
+            document.getElementById("startButton").innerHTML = "Start";
+        }
 
+        function printToPdf() {
+            var doc = new jsPDF();
+            doc.setFontSize(35);
+            doc.text(25, 25, 'Speedway Challenge');
+            doc.text(25, 35, 'Lab Report');
+            doc.setFontSize(24);
+            doc.text(25, 45, 'Goal: Make the car go fast');
+            doc.text(25, 55, 'What did you try?');
+            doc.text(25, 65, document.getElementById("plan").value);
+            doc.text(25, 75, 'What happened when you tested your plan?');
+            doc.text(25, 85, document.getElementById("prediction").value);
+            doc.save('speedwaylab.pdf');
+        }
 
+        function previewFile() {
+            var preview = document.querySelector('img'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
+</body>
 
-  <textarea name = "plan" form = "whatareyougoingtotry?"
-            placeholder = "Record your plan and predictions here!">
-</textarea>
-  <br>
-  <div id = "time"></div>
-<button id = "startButton" onClick = getTimeStart()>Start</button>
-<button onClick = getStopTime()>Stop</button> 
-<button onClick = restart()>Restart</button>
-
-<script type="text/javascript">
-//JavaScript 
-var timer = new Date();
-var startTime = 0;
-var stopTime = 0;
-var tenthseconds = 0;
-var seconds = 0;
-setInterval(displayTime, 100);
-var isStopped = false;
-function displayTime() {
-  timer = new Date();
-  if (startTime != 0 && !isStopped) {
-    stopTime = timer.getTime();
-    var elapsedseconds = stopTime - startTime; 
-    tenthseconds = Math.floor(elapsedseconds / 100) % 10;
-    seconds = Math.floor(elapsedseconds / 1000);
-  } 
-  document.getElementById("time").innerHTML =
-    seconds + ":" + tenthseconds + " seconds";
-  console.log(isStopped);
-}
-function getTimeStart() {
-  console.log("Start");
-  timer = new Date();
-  startTime = timer.getTime();
-  console.log(startTime);
-  document.getElementById("startButton").innerHTML = "Started...";
-}
-function getStopTime() { 
-  isStopped = true;
-  document.getElementById("startButton").innerHTML = "Start"; 
-}
-var timeToDisplay = stopTime - startTime;
-function restart() 
-{ isStopped = false; 
- startTime = 0; 
- seconds = 0;
- tenthseconds = 0; 
- document.getElementById("startButton").innerHTML = "Start"; 
-}
-</script>
-  <label> How fast did your car go? Hint: Use the timer! </label>
-   <textarea name = "prediction" form = "whatareyougoingtotry?"
-            placeholder = "Record your results here!">
-</textarea>
-  
-  <input type= "submit" value="Save my Report!">
-</form>
-	<p>
-    <h1>Ready to move on to something new?<h1>
-    <h2>CLICK BELOW!<h2>
-</p>
-<a href="climbingTransition.html"/>
-        <img src="https://static1.squarespace.com/static/589a3a502e69cf66eed974fa/5a393353e4966b9ea4cd5860/5a3943c8652dea6c079c7386/1513702388953/Screen+Shot+2017-12-19+at+10.44.17+AM.png?format=750w" width = "350">
-</a>
-
-  
 </html>
-
