@@ -1,0 +1,29 @@
+body{text-align: center;}
+p{
+  font-size: 20px
+}
+textarea {
+   resize: none;
+  
+}
+#title {
+  text-align: center;
+  font-size: 40px;
+  padding: 10px;
+  margin: 10px; 
+  
+    
+}
+#challenge-type{
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  margin: 10px;
+}
+textarea{
+ height: 300px;
+ width: 660px; 
+ display: block;
+  margin: 0 auto
+}
+
