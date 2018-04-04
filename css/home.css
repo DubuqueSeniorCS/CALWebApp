@@ -1,12 +1,12 @@
 .hometabs {
     height: 100%;
     width: 30%;
+    font-size: 30px;
     position: fixed;
     top: 0;
     right: 0;
     color:black;
     overflow-x: hidden;
-    font-size: 30px;
 }
 
 .homeinfo {
