@@ -1,83 +1,73 @@
 <html>
-        <head>
-                <link rel="stylesheet" href="labreport.css">
-                 <link rel="stylesheet" type="text/css" href="./css/sabrinacss.css"/>
-                <title>Climbing Lab</title>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-        </head>
 
-        <body>
+<head>
+    <link rel="stylesheet" href="labreport.css">
+    <link rel="stylesheet" type="text/css" href="./css/sabrinacss.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Climbing Lab</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+</head>
 
-                <h1 id = "title">Lab Report</h1>
+<body>
 
-                <h2 id = "challenge-type" >Climbing Challenge </h2>
+    <h1 id="title">Lab Report</h1>
 
-                <p>What path allows you to get the farthest? Bouldering? Vertical?</p>
+    <h2 id="challenge-type">Climbing Challenge </h2>
 
-                <form onsubmit="printToPdf()">
-                        <label> What are you going to try?</label>
+    <p>What path allows you to get the farthest? Bouldering? Vertical?</p>
 
-                        <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
+    <label> What are you going to try?</label>
 
-                        <br>
+    <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
 
-                        <label> What happened when you tested your plan? How far did you get? </label>
+    <br>
 
-                        <textarea id="prediction" placeholder="Record your results here!"></textarea>
-                  <textarea id= "photo" placeholder="Upload a photo of your lab here?"> </textarea>
-                  <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-  </head>
+    <label> What happened when you tested your plan? How far did you get? </label>
 
-  <body>
-        <input type="file" onchange="previewFile()"><br>
-        <img src="" height="200" alt="Image preview...">
+    <textarea id="prediction" placeholder="Record your results here!"></textarea>
 
-        <script>
-           function previewFile(){
-               var preview = document.querySelector('img'); //selects the query named img
-               var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-               var reader  = new FileReader();
-               reader.onloadend = function () {
-                   preview.src = reader.result;
-               }
-               if (file) {
-                   reader.readAsDataURL(file); //reads the data as a URL
-               } else {
-                   preview.src = "";
-               }
-          }
-          previewFile();  //calls the function named previewFile()
-          </script>
-  </body>
+    <input type="file" onchange="previewFile()">
+    <br>
+    <img src="" height="200" alt="Image preview...">
+    <br>
+    <button onclick="printToPdf()">Save my Report!</button>
 
-                        <input type= "submit" value="Save my Report!">
-                </form>
+    <h1>Ready to move on to something new?</h1>
+    <h2>CLICK BELOW!</h2>
+    <button type="button" onclick="alert('Hello world!')">Click Here to Return Home!</button>
+    <br>
+    <a href="constructionlab.html"><img src="https://static1.squarespace.com/static/589a3a502e69cf66eed974fa/5a393353e4966b9ea4cd5860/5a3943c8652dea6c079c7386/1513702388953/Screen+Shot+2017-12-19+at+10.44.17+AM.png?format=750w" width="350"></a>
 
-                <h1>Ready to move on to something new?<h1>
-                <h2>CLICK BELOW!<h2>
- <button type="button" onclick="alert('Hello world!')">Click Here to Return Home!</button>
-                 <br> <br/>
-                <a href="constructionlab.html"/>
-                        <img src="https://static1.squarespace.com/static/589a3a502e69cf66eed974fa/5a393353e4966b9ea4cd5860/5a3943c8652dea6c079c7386/1513702388953/Screen+Shot+2017-12-19+at+10.44.17+AM.png?format=750w" width = "350">
-                </a>
+    <script>
+        function previewFile() {
+            var preview = document.querySelector('img'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
+        }
 
-                <script>
-                        function printToPdf(){
-                                var doc = new jsPDF();
-                                doc.setFontSize(35);
-                                doc.text(25, 25, 'Climbing Challenge');
-                                doc.text(25, 35, 'Lab Report');
-                                doc.setFontSize(24);
-                                doc.text(25, 45, 'Goal: Get the farthest along the wall');
-                                doc.text(25, 55, 'What did you try?');
-                                doc.text(25, 65, document.getElementById("plan").value);
-                                doc.text(25, 75, 'What happened when you tested your plan?');
-                                doc.text(25, 85, document.getElementById("prediction").value);
-                                doc.save('climbinglab.pdf');
-                        }
-                </script>
-        </body>
+        function printToPdf() {
+            var doc = new jsPDF();
+            doc.setFontSize(35);
+            doc.text(25, 25, 'Climbing Challenge');
+            doc.text(25, 35, 'Lab Report');
+            doc.setFontSize(24);
+            doc.text(25, 45, 'Goal: Get the farthest along the wall');
+            doc.text(25, 55, 'What did you try?');
+            doc.text(25, 65, document.getElementById("plan").value);
+            doc.text(25, 75, 'What happened when you tested your plan?');
+            doc.text(25, 85, document.getElementById("prediction").value);
+            doc.save('climbinglab.pdf');
+        }
+    </script>
+</body>
+
 </html>

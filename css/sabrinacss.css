@@ -22,7 +22,7 @@ textarea {
 }
 textarea{
  height: 300px;
- width: 660px; 
+ width: 100%; 
  display: block;
   margin: 0 auto
 }
