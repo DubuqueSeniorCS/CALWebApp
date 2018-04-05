@@ -47,6 +47,8 @@
     </a>
     <br>
     <script>
+        var imgData;
+
            function previewFile() {
             var preview = document.querySelector('img'); //selects the query named img
             var file = document.querySelector('input[type=file]').files[0]; //sames as here
@@ -115,6 +117,7 @@
             doc.text(25, 65, document.getElementById("plan").value);
             doc.text(25, 75, 'What happened when you tested your plan?');
             doc.text(25, 85, document.getElementById("prediction").value);
+            doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
             doc.save('speedwaylab.pdf');
         }
 
@@ -124,6 +127,7 @@
             var reader = new FileReader();
             reader.onloadend = function () {
                 preview.src = reader.result;
+                imgData = reader.result;
             }
             if (file) {
                 reader.readAsDataURL(file); //reads the data as a URL
