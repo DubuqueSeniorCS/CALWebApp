@@ -69,7 +69,9 @@
             doc.text(25, 65, document.getElementById("plan").value);
             doc.text(25, 75, 'What happened when you tested your plan?');
             doc.text(25, 85, document.getElementById("prediction").value);
-            doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
+            if(imgData != null){
+                doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
+            }
             doc.save('constructionlab.pdf');
         }
     </script>
