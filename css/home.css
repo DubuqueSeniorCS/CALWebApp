@@ -1,6 +1,6 @@
 .hometabs {
     height: 100%;
-    width: 30%;
+    width: 200px;
     position: fixed;
     top: 0;
     right: 0;
@@ -9,7 +9,7 @@
 }
 
 .homeinfo {
-        width: 70%;
+        width: calc(100% - 200px);
         padding-top: 10px;
         text-align: center;
         font-size: 30px;
