@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,500|Oswald:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600|Oswald:400,700');
 
 * {
     font-family: 'Lato', sans-serif;
@@ -8,6 +8,7 @@
     padding:0;
     box-sizing:border-box;
     text-align: center;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 body::before {
@@ -19,16 +20,13 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -10;
-    background: url('../images/home_background.jpg') no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url('../images/lightlab_background.jpg') no-repeat;
     background-size: cover;
 }
 
 .prompt {
     font-family: 'Lato', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     padding-bottom: 15px;
 }
 
@@ -51,13 +49,14 @@ h3 {
 
 textarea {
     resize: none;
-    height: 300px;
+    height: 350px;
     width: 90%;
     background: transparent;
-    background-image: linear-gradient(to bottom right, #ffb90260, #ff006260);
+    background-image: linear-gradient(to bottom right, #ffb90280, #ff006280);
     border-style: none;
     border-radius: 50px;
-    padding: 10px;
+    padding: 10px 20px;
+    text-align: left;
 }
 
 .nextlab h2 {
@@ -68,12 +67,14 @@ textarea {
 
 button {
     background: transparent;
-    background-image: linear-gradient(to right, #ffb70260, #ff006260);
-    padding: 20px;
+    background-image: linear-gradient(to bottom right, #ffb70280, #ff006280);
+    padding: 20px 30px;
     border: none;
     border-radius: 50px;
+    font-weight: 600;
 }
 
 ::placeholder{
     color: white;
+    text-align: center;
 }

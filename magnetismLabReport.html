@@ -1,67 +1,71 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="labreport.css">
+    <link rel="stylesheet" type="text/css" href="./css/mlabreport.css" />
+    <!--<link rel="stylesheet" href="labreport.css">
     <link rel="stylesheet" type="text/css" href="./css/sabrinacss.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">-->
     <title>Magnetism Lab</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 </head>
 
 <body>
 
-    <h1 id="title">Lab Report</h1>
+    <h1 id="challenge-type">Magnetism Challenge</h1>
 
-    <h2 id="challenge-type">Magnetism Challenge </h2>
+    <h3>How far can you make the ball jump?</h3>
 
-    <p>How far can you make the ball jump?</p>
+    <div class="interaction">
+        <p class="prompt" style="padding-top: 50px">What are you going to try?</p>
+        <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
 
+        <p class="prompt" style="padding-top: 50px">What happened when you tested your plan? How far did the ball jump?</p>
+        <textarea id="prediction" placeholder="Record your results here!"></textarea><br>
 
-    <label> What are you going to try?</label>
+        <input type="file" onchange="previewFile()" style="padding-top: 25px; padding-bottom: 25px"><br>
 
-    <textarea id="plan" placeholder="Record your plan and predictions here!"></textarea>
+        <!--<img src="" height="200" alt="Image preview...">-->
 
-    <br>
+        <button class="save" onclick="printToPdf()">Save my Report!</button>
+    </div>
 
-    <label> What happened when you tested your plan? How far did the ball jump? </label>
+    <div class="nextlab" style="padding-top: 50px">
+        <h3 style="padding-bottom: 25px">Ready to move on to something new?</h3>
+        <a href="./index.html" style="color: white; text-decoration: none">
+            <div style="background-image:linear-gradient(to bottom right, #ffb90280, #ff006280), url(&quot;./images/speedway_transition.jpg&quot;); width: 50%; height: 500px; float: left">
+                <h2>Home</h2>
+            </div>
+        </a>
 
-    <textarea id="prediction" placeholder="Record your results here!"></textarea>
+        <a href="./speedwayLabReport.html" style="color: white; text-decoration: none">
+            <div style="background-image:linear-gradient(to bottom right, #a6ff0080, #02eaff80), url(&quot;./images/gravity_transition.jpg&quot;); width: 50%; height: 500px; float: left">
+                <h2>Next</h2>
+            </div>
+        </a>
+    </div>
+    <!--<div class="nextlab" style="background-image:linear-gradient(to bottom right, #a6ff0080, #02eaff80), url(&quot;./images/gravity_transition.jpg&quot;); width: 100%; height: 500px">
+        <button class="nextlab_buttons" onclick="location.assign('index.html')">Home</button>
+        <button class="nextlab_buttons" onclick="location.assign('magnetismLabReport.html')">Next</button>
+    </div>-->
 
-    <input type="file" onchange="previewFile()">
-    <br>
-    <img src="" height="200" alt="Image preview...">
-
-    <br>
-    <button onclick="printToPdf()">Save my Report!</button>
-
-
-    <h1>Ready to move on to something new?</h1>
-    <h2>CLICK BELOW!</h2>
-   
-    <br>
-    <a href="speedwayLabReport.html"><img src="https://static1.squarespace.com/static/589a3a502e69cf66eed974fa/5a393353e4966b9ea4cd5860/5a3943c8652dea6c079c7386/1513702388953/Screen+Shot+2017-12-19+at+10.44.17+AM.png?format=750w" width="350"></a>
- <br>
-    <br>
-    <a href = "index.html">
-    <button>Click Here to Return Home!</button>
-    </a>
     <script>
         var imgData;
 
         function previewFile() {
-            var preview = document.querySelector('img'); //selects the query named img
+            //var preview = document.querySelector('img'); //selects the query named img
             var file = document.querySelector('input[type=file]').files[0]; //sames as here
             var reader = new FileReader();
             reader.onloadend = function () {
-                preview.src = reader.result;
+                //preview.src = reader.result;
                 imgData = reader.result;
             }
             if (file) {
                 reader.readAsDataURL(file); //reads the data as a URL
-            } else {
-                preview.src = "";
             }
+            /* else {
+                            preview.src = "";
+                        }*/
         }
 
         function printToPdf() {
@@ -70,12 +74,12 @@
             doc.text(25, 25, 'Magnetism Challenge');
             doc.text(25, 35, 'Lab Report');
             doc.setFontSize(24);
-            doc.text(25, 45, 'Goal: Make the ball jump far');
+            doc.text(25, 45, 'Goal: Make cool shapes');
             doc.text(25, 55, 'What did you try?');
             doc.text(25, 65, document.getElementById("plan").value);
             doc.text(25, 75, 'What happened when you tested your plan?');
             doc.text(25, 85, document.getElementById("prediction").value);
-            if(imgData != null){
+            if (imgData != null) {
                 doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
             }
             doc.save('magnetismlab.pdf');
