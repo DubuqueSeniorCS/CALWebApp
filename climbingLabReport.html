@@ -22,10 +22,20 @@
 
         <p class="prompt" style="padding-top: 50px">What happened? How far did you get?</p>
         <textarea class="climbing" id="prediction" placeholder="Record your results here!"></textarea><br>
+        
+        <canvas id="canvas" width="200" height="200" style="border:solid black 1px;">
+            Your browser does not support canvas element.
+         </canvas>
+       <br>
+       <!--<button onclick="startup()">Trace your path </button>-->
+       <button onclick="erase()">Erase </button>
+       <button onclick="save()"> Save </button> 
+       <br>
 
         <input type="file" onchange="previewFile()" style="padding-top: 25px; padding-bottom: 25px"><br>
 
         <!--<img src="" height="200" alt="Image preview...">-->
+       
 
         <button class="climbing" onclick="printToPdf()">Save my Report!</button>
     </div>
