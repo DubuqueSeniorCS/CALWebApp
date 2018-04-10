@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald:400,700');
+
+* {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 30px;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-align: center;
+}
+
+html {
+    background: #121212;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+textarea {
+    width: 90%;
+}
+
+.nextlab h2 {
+    position: relative;
+    top: 175px;
+    font-size: 100px;
+}
+
+.save {
+    background-color: #ffb902;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+}
