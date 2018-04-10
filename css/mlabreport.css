@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Oswald:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500|Oswald:400,700');
 
 * {
     font-family: 'Lato', sans-serif;
@@ -14,6 +14,12 @@ body {
     background-image: url('../images/home_background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.prompt {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    padding-bottom: 15px;
 }
 
 h1, h2, h3 {
