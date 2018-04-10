@@ -10,10 +10,11 @@
     text-align: center;
 }
 
-body {
+html {
     background-image: url('../images/home_background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .prompt {
