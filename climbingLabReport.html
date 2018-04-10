@@ -32,12 +32,15 @@
        <button onclick="save()"> Save </button> 
        <br>
 
-        <input type="file" onchange="previewFile()" style="padding-top: 25px; padding-bottom: 25px"><br>
+       <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
+       <div style="padding-top:50px">
+           <button class="climbing" onclick="document.getElementById('selectedFile').click();">Take a Photo</button><br>
+       </div>
 
-        <!--<img src="" height="200" alt="Image preview...">-->
-       
-
-        <button class="climbing" onclick="printToPdf()">Save my Report!</button>
+       <!--<img src="" height="200" alt="Image preview...">-->
+       <div style="padding-top:50px">
+           <button class="climbing" onclick="printToPdf()">Save my Report!</button>
+       </div>
     </div>
 
     <div class="nextlab" style="padding-top: 50px">

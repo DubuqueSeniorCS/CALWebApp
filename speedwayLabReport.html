@@ -29,11 +29,15 @@
         </div>
         <textarea class="speedway" id="prediction" placeholder="Record your results here!"></textarea><br>
 
-        <input type="file" onchange="previewFile()" style="padding-top: 25px; padding-bottom: 25px"><br>
+        <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
+        <div style="padding-top:50px">
+            <button class="speedway" onclick="document.getElementById('selectedFile').click();">Take a Photo</button><br>
+        </div>
 
         <!--<img src="" height="200" alt="Image preview...">-->
-
-        <button class="speedway" onclick="printToPdf()">Save my Report!</button>
+        <div style="padding-top:50px">
+            <button class="speedway" onclick="printToPdf()">Save my Report!</button>
+        </div>
     </div>
 
     <div class="nextlab" style="padding-top: 50px">
