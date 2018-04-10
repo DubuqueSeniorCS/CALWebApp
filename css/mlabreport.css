@@ -3,7 +3,7 @@
 * {
     font-family: 'Lato', sans-serif;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -20,15 +20,15 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 80px;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 60px;
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 50px;
 }
 
 textarea {
