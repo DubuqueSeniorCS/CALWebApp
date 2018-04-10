@@ -67,11 +67,34 @@ textarea {
 
 button {
     background: transparent;
-    background-image: linear-gradient(to bottom right, #ffb70280, #ff006280);
     padding: 20px 30px;
     border: none;
     border-radius: 50px;
     font-weight: 600;
+}
+
+.speedway {
+    background-image: linear-gradient(to bottom right, #03ffeaa8, #03c0ffa8);
+}
+
+.gravity {
+    background-image: linear-gradient(to bottom right, #d0ff00a8, #7bff00a8);
+}
+
+.light {
+    background-image: linear-gradient(to bottom right, #ffe203a8, #ff8d03a8);
+}
+
+.climbing {
+    background-image: linear-gradient(to bottom right, #ff008ca8, #ff0037a8);
+}
+
+.magnetism {
+    background-image: linear-gradient(to bottom right, #d0ff00a8, #7bff00a8);
+}
+
+.construction {
+    background-image: linear-gradient(to bottom right, #ea03ff80, #9603ff80);
 }
 
 ::placeholder{
