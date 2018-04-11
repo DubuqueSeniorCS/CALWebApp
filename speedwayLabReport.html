@@ -18,7 +18,7 @@
 
     <div class="interaction">
         <p class="prompt" style="padding-top: 50px">What are you going to try?</p>
-        <textarea class="speedway" id="plan" placeholder="Record your plan and predictions here!"></textarea>
+        <textarea class="speedway" id="plan" placeholder="Record your plan and predictions here!" onfocus="this.placeholder=''"></textarea>
 
         <p class="prompt" style="padding-top: 50px">How fast did your car go? Hint: use the timer!</p>
         <div style="padding-bottom: 20px">
@@ -27,7 +27,7 @@
             <button class="speedway" onClick="getStopTime()">Stop</button>
             <button class="speedway" onClick="restart()">Restart</button>
         </div>
-        <textarea class="speedway" id="prediction" placeholder="Record your results here!"></textarea><br>
+        <textarea class="speedway" id="prediction" placeholder="Record your results here!" onfocus="this.placeholder=''"></textarea><br>
 
         <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
         <div style="padding-top:50px">
