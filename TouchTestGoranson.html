@@ -10,9 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 </head>
 
-<body onload = "startup()">
+<body onload = "startup()" onload ="loadPic()">
 
+    <img id="wall" width="220" height="277" src="./images/Climbing_Lab-Long_Exposure.jpg" alt="Wall">
     <h1 id="challenge-type">Climbing Challenge</h1>
+  
 
     <h3>What path allows you to get the farthest? Bouldering? Vertical?</h3>
 
@@ -113,6 +115,14 @@ function erase(){
   var ctx = el.getContext("2d");
   ctx.clearRect(0,0,200,200); 
   }
+    
+  
+  function loadPic() 
+    {   var el = document.getElementsByTagName("canvas")[0];
+  var ctx = el.getContext("2d");
+     var img = document.getElementbyID("wall"); 
+     ctx.drawImage(img,0,0); 
+    } 
 //for(i=0; i< touches.length; i++)
  //touches.pop();
   //for(i=0; i< ongoingTouches.length; i++)
