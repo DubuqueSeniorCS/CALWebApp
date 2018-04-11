@@ -23,13 +23,13 @@
         <p class="prompt" style="padding-top: 50px">What happened? How far did you get?</p>
         <textarea class="climbing" id="prediction" placeholder="Record your results here!"></textarea><br>
         
-        <canvas id="canvas" width="200" height="200" style="border:solid black 1px;">
+        <canvas id="canvas" width="200" height="200" style="border:solid black 1px; background-image:url(&quot;./ClimbingLab_LongExposure.JPG&quot;); background-size:cover">
             Your browser does not support canvas element.
          </canvas>
        <br>
        <!--<button onclick="startup()">Trace your path </button>-->
-       <button onclick="erase()">Erase </button>
-       <button onclick="save()"> Save </button> 
+       <button class="climbing" onclick="erase()">Erase </button>
+       <button class="climbing" onclick="save()"> Save </button> 
        <br>
 
        <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
