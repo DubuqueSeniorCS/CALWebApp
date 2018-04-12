@@ -28,8 +28,8 @@
          </canvas>
        <br>
        <!--<button onclick="startup()">Trace your path </button>-->
-       <button class="climbing" onclick="erase()">Erase </button>
-       <button class="climbing" onclick="save()"> Save </button> 
+       <button id="erase" class="climbing" onclick="erase()">Erase </button>
+       <button id="save" class="climbing" onclick="save()"> Save </button> 
        <br>
 
        <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
@@ -112,7 +112,7 @@ function startup() {
   //console.log(touches.length+"start")
 }
 
-function save() { canErase = false; }
+function save() { canErase = false; hide() }
 
 function erase(){ 
   if(canErase){
@@ -126,6 +126,12 @@ function erase(){
    //ongoingTouches.pop();
   //log(touches.length+"erased")
 }
+function hide() 
+        { var el = document.getElementById("erase");
+         var el2 = document.getElementById("save");
+           el.style.display="none"; 
+           el2.style.display="none"; 
+        } 
 
 function handleStart(evt) {
 //  log("touchstart.");
@@ -140,10 +146,10 @@ var offset = findPos(el);
             evt.preventDefault();
     //log("touchstart:" + i + "...");
     ongoingTouches.push(copyTouch(touches[i]));
-    var color = colorForTouch(touches[i]);
+   // var color = colorForTouch(touches[i]);
     ctx.beginPath();
     ctx.arc(touches[i].clientX-offset.x, touches[i].clientY-offset.y, 4, 0, 2 * Math.PI, false); // a circle at the start
-    ctx.fillStyle = color;
+    //ctx.fillStyle = color;
     ctx.fill();
     //log("touchstart:" + i + ".");
   }
@@ -159,7 +165,7 @@ function handleMove(evt) {
   for (var i = 0; i < touches.length; i++) {
         if(touches[i].clientX-offset.x >0 && touches[i].clientX-offset.x < parseFloat(el.width) && touches[i].clientY-offset.y >0 && touches[i].clientY-offset.y < parseFloat(el.height)){
               evt.preventDefault();
-      var color = colorForTouch(touches[i]);
+      //var color = colorForTouch(touches[i]);
     var idx = ongoingTouchIndexById(touches[i].identifier);
     
     if (idx >= 0) {
@@ -170,7 +176,7 @@ function handleMove(evt) {
       //log("ctx.lineTo(" + touches[i].clientX + ", " + touches[i].clientY + ");");
       ctx.lineTo(touches[i].clientX-offset.x, touches[i].clientY-offset.y);
       ctx.lineWidth = 4;
-      ctx.strokeStyle = color;
+      //ctx.strokeStyle = color;
       ctx.stroke();
       
       ongoingTouches.splice(idx, 1, copyTouch(touches[i])); // swap in the new touch record
@@ -192,12 +198,12 @@ function handleEnd(evt) {
   for (var i = 0; i < touches.length; i++) {
               if(touches[i].clientX-offset.x >0 && touches[i].clientX-offset.x < parseFloat(el.width) && touches[i].clientY-offset.y >0 && touches[i].clientY-offset.y < parseFloat(el.height)){
                     evt.preventDefault();
-    var color = colorForTouch(touches[i]);
+    //var color = colorForTouch(touches[i]);
     var idx = ongoingTouchIndexById(touches[i].identifier);
         
     if (idx >= 0) {
       ctx.lineWidth = 4;
-      ctx.fillStyle = color;
+      //ctx.fillStyle = color;
       ctx.beginPath();
       ctx.moveTo(ongoingTouches[idx].clientX-offset.x, ongoingTouches[idx].clientY-offset.y);
       ctx.lineTo(touches[i].clientX-offset.x, touches[i].clientY-offset.y);
@@ -218,17 +224,7 @@ function handleCancel(evt) {
     ongoingTouches.splice(i, 1); // remove it; we're done
   }
 }
-function colorForTouch(touch) {
-  var r = touch.identifier % 16;
-  var g = Math.floor(touch.identifier / 3) % 16;
-  var b = Math.floor(touch.identifier / 7) % 16;
-  r = r.toString(16); // make it a hex digit
-  g = g.toString(16); // make it a hex digit
-  b = b.toString(16); // make it a hex digit
-  var color = "#" + F + F + F + F + F + F;
-  //log("color for touch with identifier " + touch.identifier + " = " + color);
-  return color;
-}
+
 function copyTouch(touch) {
   return {identifier: touch.identifier,clientX: touch.clientX,clientY: touch.clientY};
 }
