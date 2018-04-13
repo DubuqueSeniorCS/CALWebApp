@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./css/home.css" />
     <link rel="icon" sizes="192x192" href="./images/android-icon-192.png">
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+    <script src="./scripts/addtohomescreen.js"></script>
 </head>
 
 <body class="homebody">
@@ -23,6 +24,11 @@
         </h3>
     </div>
 
+    <div class="savetohome">
+            <a onclick="testTap()"><img src="./images/android-icon-192.png" height="72" width="72"></a><br>
+        <a onclick="popup()">Save This App To Your Home Screen</a>
+    </div>
+
     <div class="hometabs">
         <button type="button" onclick="location.assign('transitionPages/legoTransition.html	')" style="background-color: transparent; background-image: linear-gradient(to bottom right, #03ffead8, #03c0ffd8);">Lego Lab</button>
         <button type="button" onclick="location.assign('lightLabReport.html')" style="background-color: transparent; background-image: linear-gradient(to bottom right, #ffe203d8, #ff8d03d8);">Light Lab</button>
@@ -32,5 +38,11 @@
     </div>
 
 </body>
+
+<script>
+    function popup() {
+        addToHomeScreen();
+    }
+</script>
 
 </html>
