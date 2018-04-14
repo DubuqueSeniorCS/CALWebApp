@@ -6,10 +6,8 @@
     <!--<link rel="stylesheet" type="text/css" href="./css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />-->
     <link rel="stylesheet" type="text/css" href="./css/home.css" />
-    <link rel="stylesheet" type="text/css" href="./css/addtohomescreen.css">
     <link rel="icon" sizes="192x192" href="./images/android-icon-192.png">
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-    <script src="./scripts/addtohomescreen.js"></script>
 </head>
 
 <body class="homebody">
@@ -26,9 +24,12 @@
     </div>
 
     <div class="savetohome">
-        <a onclick="addToHomescreen()"><img src="./images/android-icon-192.png" height="86" width="86"></a><br>
-        <a onclick="addToHomescreen()">Save This App To Your Home Screen</a>
-        <p id="platform"></p>
+        <a onclick="addToHomeScreen()"><img src="./images/android-icon-192.png" height="86" width="86"></a><br>
+        <a onclick="addToHomeScreen()">Save This App To Your Home Screen</a>
+    </div>
+
+    <div class="howto" id="tutorial" style="visibility: hidden">
+        Tap the </NOBR><img src="./images/ios-share.png" height="52" width="52" style="vertical-align: middle;"> or<img src="./images/android-share.png" height="52" width="52" style="vertical-align: middle;">and choose Add to Home Screen
     </div>
 
     <div class="hometabs">
@@ -40,7 +41,14 @@
     </div>
 
     <script>
-        document.getElementById("platform").innerHTML = navigator.platform;
+        function addToHomeScreen() {
+            var x = document.getElementById("tutorial");
+            if (x.style.visibility === "visible") {
+                x.style.visibility = "hidden";
+            } else {
+                x.style.visibility = "visible";
+            }
+        }
     </script>
 </body>
 

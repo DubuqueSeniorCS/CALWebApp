@@ -28,6 +28,19 @@
     font-size: 25px;
 }
 
+.howto {
+    background: #353535;
+    border-radius: 50px;
+    position: fixed;
+    width: calc(100% - 350px);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    bottom: 50px;
+    left: 25px;
+    text-align: center;
+    font-size: 30px;
+}
+
 html {
     height: 100%;
     background-size: cover;
