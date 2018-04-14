@@ -28,6 +28,7 @@
     <div class="savetohome">
         <a onclick="addToHomescreen()"><img src="./images/android-icon-192.png" height="86" width="86"></a><br>
         <a onclick="addToHomescreen()">Save This App To Your Home Screen</a>
+        <p id="platform"></p>
     </div>
 
     <div class="hometabs">
@@ -38,6 +39,9 @@
         <button type="button" onclick="location.assign('constructionLabReport.html')" style="background-color: transparent; background-image: linear-gradient(to bottom right, #ea03ffd8, #9603ffd8); font-size: 45px;">Construction Lab</button>
     </div>
 
+    <script>
+        document.getElementById("platform").innerHTML = navigator.platform;
+    </script>
 </body>
 
 </html>
