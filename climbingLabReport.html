@@ -187,7 +187,7 @@
         var canErase = true;
 
         function startup() {
-            var el = document.body;
+            var el = document.getElementById('canvas');
             el.addEventListener("touchstart", handleStart, false);
             el.addEventListener("touchend", handleEnd, false);
             el.addEventListener("touchcancel", handleCancel, false);
@@ -224,6 +224,7 @@
 
         function handleStart(evt) {
             //  log("touchstart.");
+            evt.preventDefault(); 
             var el = document.getElementsByTagName("canvas")[0];
             var ctx = el.getContext("2d");
             touches = evt.changedTouches;
