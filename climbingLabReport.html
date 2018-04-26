@@ -115,7 +115,31 @@
 
         function printToPdf() {
             var docDefinition = {
-                content: 'This is an sample PDF printed with pdfMake'
+                content: [
+                    {text: 'Adventure Report', style: 'header'},
+                    {text: ' '},
+                    {
+                        columns: [
+                            {
+                                width: '50%',
+                                text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                            },
+                            {
+                                width: '*',
+                                text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                            }
+                        ],
+                        columnGap: 10
+                    },' ',
+                    'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                ],
+                styles: {
+                    header: {
+                    fontSize: 22,
+                    bold: true,
+                    alignment: 'center'
+                    },
+                }
             };
             pdfMake.createPdf(docDefinition).download('ClimbingLabReport.pdf');
         }
