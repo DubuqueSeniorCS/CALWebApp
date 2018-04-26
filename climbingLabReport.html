@@ -116,8 +116,29 @@
         function printToPdf() {
             var docDefinition = {
                 content: [
-                    {text: 'Adventure Report', style: 'header'},
-                    {text: ' '},
+                    {
+                        text: 'Adventure Report', style: 'h1'
+                    },
+                    {
+                        text: ' '
+                    },
+                    {
+                        columns: [
+                            {
+                                width: '50%',
+                                text: 'Question 1',
+                                style: 'h2'
+                            },
+                            {
+                                width: '*',
+                                text: 'Question 2',
+                                style: 'h2'
+                            }
+                        ],
+                    },
+                    {
+                        text: ' '
+                    },
                     {
                         columns: [
                             {
@@ -130,12 +151,22 @@
                             }
                         ],
                         columnGap: 10
-                    },' ',
-                    'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                    },
+                    {
+                        text: ' '
+                    },
+                    {
+                    text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                    },
                 ],
                 styles: {
-                    header: {
+                    h1: {
                     fontSize: 22,
+                    bold: true,
+                    alignment: 'center'
+                    },
+                    h2: {
+                    fontSize: 16,
                     bold: true,
                     alignment: 'center'
                     },
