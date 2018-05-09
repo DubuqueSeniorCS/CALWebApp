@@ -286,6 +286,7 @@
             //  log("touchend/touchleave.");
             var el = document.getElementsByTagName("canvas")[0];
             var ctx = el.getContext("2d");
+            ctx.lineCap = 'round';
             var touches = evt.changedTouches;
             var offset = findPos(el);
 
