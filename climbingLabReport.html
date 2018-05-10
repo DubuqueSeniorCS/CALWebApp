@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="./css/sabrinacss.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">-->
-    <title>Climbing Lab</title><script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5ae1183caec69d001b69946c&product=inline-share-buttons"></script>
+    <title>Climbing Lab</title>
+    <!--<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5ae1183caec69d001b69946c&product=inline-share-buttons"></script>-->
     
     
     
@@ -37,7 +38,7 @@
     </div>
     
    
-    <div class="sharethis-inline-share-buttons"></div>
+    <!--<div class="sharethis-inline-share-buttons"></div>-->
     
 
     <h1 id="challenge-type" style="padding-top: 150px">Climbing Challenge</h1>
@@ -121,7 +122,13 @@
         }
 
         function printToPdf() {
+            var plan = document.getElementById("plan").value;
+            var prediction = document.getElementById("prediction").value;
             var docDefinition = {
+                footer: {
+                    text: 'Footer info',
+                    alignment: 'center'
+                },
                 content: [
                     {
                         text: 'Adventure Report', style: 'h1'
@@ -133,12 +140,12 @@
                         columns: [
                             {
                                 width: '50%',
-                                text: 'Question 1',
+                                text: 'What are you going to try?',
                                 style: 'h2'
                             },
                             {
                                 width: '*',
-                                text: 'Question 2',
+                                text: 'What happened?\nHow far did you get?',
                                 style: 'h2'
                             }
                         ],
@@ -150,11 +157,11 @@
                         columns: [
                             {
                                 width: '50%',
-                                text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                                text: plan,
                             },
                             {
                                 width: '*',
-                                text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                                text: prediction,
                             }
                         ],
                         columnGap: 10
@@ -163,7 +170,9 @@
                         text: ' '
                     },
                     {
-                    text: 'Lorem ipsum dolor sit amet, commodo labitur maiestatis an nam. Iuvaret incorrupte no vix, reprimique persequeris sea no, ei docendi hendrerit qui. Ad atqui quidam viderer nec, tota adipiscing at ius, possim aeterno mentitum vis in. Soleat utamur eum cu, lobortis principes consequuntur has ex. Sed ea tibique lucilius. Ea per alia stet. Ex cum quod eius oratio.'
+                        image: imgData,
+                        width: 250,
+                        alignment: 'center',
                     },
                 ],
                 styles: {
