@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/mlabreport.css" />
+    <script src='bower_components/pdfmake/build/pdfmake.min.js'></script>
+    <script src='bower_components/pdfmake/build/vfs_fonts.js'></script>
+    <!--<link rel="stylesheet" href="labreport.css">
+    <link rel="stylesheet" type="text/css" href="./css/sabrinacss.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">-->
+    <title>Construction Lab</title>
+</head>
+
+<body class="constructionbody">
+    <div class="topbar">
+            <button onclick="toggleMenu()"><?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="fill: green;" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></button>
+    </div>
+    <div id="labs" class="labs" style="visibility: hidden">
+        <a href="./speedwayLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #03ffead8, #03c0ffd8);"><h1>Speedway Lab</h1></div>
+        </a>
+        <a href="./gravityLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #d0ff00d8, #7bff00d8);"><h1>Gravity Lab</h1></div>
+        </a>
+        <a href="./lightLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #ffe203d8, #ff8d03d8);"><h1>Light Lab</h1></div>
+        </a>
+        <a href="./climbingLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #ff008cd8, #ff0037d8);"><h1>Climbing Lab</h1></div>
+        </a>
+        <a href="./magnetismLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #d0ff00d8, #7bff00d8);"><h1>Magnetism Lab</h1></div>
+        </a>
+    </div>
+
+    <h1 id="challenge-type" style="padding-top: 150px">Design Lab</h1>
+
+    <h3>There's lots to do in the Design Lab! Theres INSERT LIST</h3>
+
+    <div class="interaction">
+        <p class="prompt" style="padding-top: 50px"> What are you going to try?</p>
+        <textarea class="construction" id="plan" placeholder="Describe the activity you're going to do here!" onfocus="this.placeholder=''"></textarea>
+
+        <p class="prompt" style="padding-top: 50px"> What did you make? What did you do that your proud of? </p>
+        <textarea class="construction" id="prediction" placeholder="Put your answer here!" onfocus="this.placeholder=''"></textarea>
+        <br>
+
+        <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
+        <div style="padding-top:50px">
+            <button class="construction" onclick="document.getElementById('selectedFile').click();">Take a Photo</button>
+            <br>
+        </div>
+
+        <!--<img src="" height="200" alt="Image preview...">-->
+        <div style="padding-top:50px">
+            <button class="construction" onclick="printToPdf()">Save my Report!</button>
+        </div>
+    </div>
+
+    <div class="nextlab" style="padding-top: 50px">
+        <h3 style="padding-bottom: 25px">Ready to move on to something new?</h3>
+        <a href="./index.html" style="color: white; text-decoration: none">
+            <div style="background-image:linear-gradient(to bottom right, #d0ff0080, #7bff0080), url(&quot;./images/CAL_NextLab_Home.jpg&quot;); width: 50%; height: 500px; float: left">
+                <h2>Home</h2>
+            </div>
+        </a>
+
+        <a href="./speedwayLabReport.html" style="color: white; text-decoration: none">
+            <div style="background-image:linear-gradient(to bottom right, #03ffea80, #03c0ff80), url(&quot;./images/CAL_NextLab_Speedway.jpg&quot;); width: 50%; height: 500px; float: left">
+                <h2>Next</h2>
+            </div>
+        </a>
+    </div>
+    <!--<div class="nextlab" style="background-image:linear-gradient(to bottom right, #a6ff0080, #02eaff80), url(&quot;./images/gravity_transition.jpg&quot;); width: 100%; height: 500px">
+        <button class="nextlab_buttons" onclick="location.assign('index.html')">Home</button>
+        <button class="nextlab_buttons" onclick="location.assign('magnetismLabReport.html')">Next</button>
+    </div>-->
+
+    <script>
+        var imgData;
+
+        function previewFile() {
+            //var preview = document.querySelector('img'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                //preview.src = reader.result;
+                imgData = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            }
+            /* else {
+                            preview.src = "";
+                        }*/
+        }
+
+        function printToPdf() {
+            var docDefinition = {
+                content: 'This is an sample PDF printed with pdfMake'
+            };
+            pdfMake.createPdf(docDefinition).download('ConstructionLabReport.pdf');
+        }
+
+        function toggleMenu(){
+            var x = document.getElementById("labs");
+            if (x.style.visibility === "visible") {
+                x.style.visibility = "hidden";
+            } else {
+                x.style.visibility = "visible";
+            }
+        }
+    </script>
+</body>
+
+</html>
