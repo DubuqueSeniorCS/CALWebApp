@@ -274,7 +274,7 @@
                         //log("continuing touch " + idx);
                         ctx.beginPath();
                         //log("ctx.moveTo(" + ongoingTouches[idx].clientX + ", " + ongoingTouches[idx].clientY + ");");
-                        //ctx.moveTo(ongoingTouches[idx].clientX-offset.x, ongoingTouches[idx].clientY-offset.y);
+                        ctx.moveTo(ongoingTouches[idx].clientX-offset.x, ongoingTouches[idx].clientY-offset.y);
                         //log("ctx.lineTo(" + touches[i].clientX + ", " + touches[i].clientY + ");");
                         ctx.lineTo(touches[i].clientX - offset.x, touches[i].clientY - offset.y);
                         ctx.lineWidth = 4;
