@@ -11,7 +11,7 @@
     <title>Design Lab</title>
 </head>
 
-<body class="constructionbody">
+<body class="designbody">
     <div class="topbar">
             <button onclick="toggleMenu()"><?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="fill: green;" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></button>
     </div>
@@ -31,6 +31,9 @@
         <a href="./magnetismLabReport.html" style="color: white; text-decoration: none">
             <div class="menuoption" style="background-image:linear-gradient(to bottom right, #d0ff00d8, #7bff00d8);"><h1>Magnetism Lab</h1></div>
         </a>
+        <a href="./constructionLabReport.html" style="color: white; text-decoration: none">
+            <div class="menuoption" style="background-image:linear-gradient(to bottom right, #ea03ffd8, #9603ffd8);"><h1>Construction Lab</h1></div>
+        </a>
     </div>
 
     <h1 id="challenge-type" style="padding-top: 150px">Design Lab</h1>
@@ -39,21 +42,21 @@
 
     <div class="interaction">
         <p class="prompt" style="padding-top: 50px"> What are you going to try?</p>
-        <textarea class="construction" id="plan" placeholder="Describe the activity you're going to do here!" onfocus="this.placeholder=''"></textarea>
+        <textarea class="design" id="plan" placeholder="Describe the activity you're going to do here!" onfocus="this.placeholder=''"></textarea>
 
         <p class="prompt" style="padding-top: 50px"> What did you make? What did you do that you're proud of? </p>
-        <textarea class="construction" id="prediction" placeholder="Put your answer here!" onfocus="this.placeholder=''"></textarea>
+        <textarea class="design" id="prediction" placeholder="Put your answer here!" onfocus="this.placeholder=''"></textarea>
         <br>
 
         <input id="selectedFile" type="file" onchange="previewFile()" style="display: none;">
         <div style="padding-top:50px">
-            <button class="construction" onclick="document.getElementById('selectedFile').click();">Take a Photo</button>
+            <button class="design" onclick="document.getElementById('selectedFile').click();">Take a Photo</button>
             <br>
         </div>
 
         <!--<img src="" height="200" alt="Image preview...">-->
         <div style="padding-top:50px">
-            <button class="construction" onclick="printToPdf()">Save my Report!</button>
+            <button class="design" onclick="printToPdf()">Save my Report!</button>
         </div>
     </div>
 
