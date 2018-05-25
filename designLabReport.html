@@ -41,7 +41,7 @@
 
     <h1 id="challenge-type" style="padding-top: 150px">Design Lab</h1>
 
-    <h3>There's lots to do in the Design Lab! Theres INSERT LIST</h3>
+    <h3>There's lots to do in the Design Lab!</h3>
 
     <div class="interaction">
         <p class="prompt" style="padding-top: 50px"> What are you going to try?</p>
@@ -66,7 +66,7 @@
     <div class="nextlab" style="padding-top: 50px">
         <h3 style="padding-bottom: 25px">Ready to move on to something new?</h3>
         <a href="./index.html" style="color: white; text-decoration: none">
-            <div style="background-image:linear-gradient(to bottom right, #d0ff0080, #7bff0080), url(&quot;./images/CAL_NextLab_Home.jpg&quot;); width: 50%; height: 500px; float: left">
+            <div style="background-image:linear-gradient(to bottom right, #ea03ff80, #9603ff80), url(&quot;./images/CAL_NextLab_Home.jpg&quot;); width: 50%; height: 500px; float: left">
                 <h2>Home</h2>
             </div>
         </a>
@@ -102,10 +102,73 @@
         }
 
         function printToPdf() {
+            var plan = document.getElementById("plan").value;
+            var prediction = document.getElementById("prediction").value;
             var docDefinition = {
-                content: 'This is an sample PDF printed with pdfMake'
+                footer: {
+                    text: 'Footer info',
+                    alignment: 'center'
+                },
+                content: [
+                    {
+                        text: 'Adventure Report', style: 'h1'
+                    },
+                    {
+                        text: ' '
+                    },
+                    {
+                        columns: [
+                            {
+                                width: '50%',
+                                text: 'What are you going to try?',
+                                style: 'h2'
+                            },
+                            {
+                                width: '*',
+                                text: 'What did you make?\nWhat did you do that\nyou\'re proud of?',
+                                style: 'h2'
+                            }
+                        ],
+                    },
+                    {
+                        text: ' '
+                    },
+                    {
+                        columns: [
+                            {
+                                width: '50%',
+                                text: plan,
+                            },
+                            {
+                                width: '*',
+                                text: prediction,
+                            }
+                        ],
+                        columnGap: 10
+                    },
+                    {
+                        text: ' '
+                    },
+                    {
+                        image: imgData,
+                        width: 250,
+                        alignment: 'center',
+                    },
+                ],
+                styles: {
+                    h1: {
+                    fontSize: 22,
+                    bold: true,
+                    alignment: 'center'
+                    },
+                    h2: {
+                    fontSize: 16,
+                    bold: true,
+                    alignment: 'center'
+                    },
+                }
             };
-            pdfMake.createPdf(docDefinition).download('ConstructionLabReport.pdf');
+            pdfMake.createPdf(docDefinition).download('ClimbingLabReport.pdf');
         }
 
         function toggleMenu(){
