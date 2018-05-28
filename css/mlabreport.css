@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,600|Oswald:400,700');
-
+@font-face { font-family: "calfont"; 
+    src: url('../HCB.ttf'); 
+    }
 * {
-    font-family: 'Lato', sans-serif;
+    font-family: 'calfont';
     color: white;
     font-size: 40px;
     margin:0;
@@ -12,7 +14,7 @@
 }
 
 .prompt {
-    font-family: 'Lato', sans-serif;
+    font-family: 'calfont';
     font-weight: 600;
     padding-bottom: 15px;
 }
@@ -49,7 +51,7 @@
 }
 
 .menuoption h1 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'calfont';
     color: white;
     font-size: 70px;
     position: relative;
@@ -62,7 +64,7 @@
 }
 
 h1, h2, h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'calfont';
     text-align: center;
 }
 
